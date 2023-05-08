@@ -1,0 +1,19 @@
+name: Issues Manager
+
+on:
+  workflow_dispatch:
+  release:
+    types: [created]
+
+permissions: write-all
+
+jobs:
+  echo-input:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const script = require('./scripts/issue_label_manager.js')
+            console.log(script({github, context}))
