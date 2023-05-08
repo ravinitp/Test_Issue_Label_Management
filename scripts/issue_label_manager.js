@@ -17,5 +17,5 @@ module.exports = ({github, context}) => {
     }
     const result = github.graphql(query, variables);
     console.log(result);
-    return context.payload.client_payload.value;
+    return result;
 }
