@@ -5,7 +5,7 @@ module.exports = async ({github, context}) => {
               repository(owner:$owner, name:$name){
                 issues(first:100, labels: [$label]) {
                   nodes {
-                    id
+                    number
                   }
                 }
               }
