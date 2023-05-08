@@ -1,6 +1,6 @@
 
 module.exports = ({github, context}) => {
-    console.log(context.payload.client_payload.value)
+//     console.log(context.payload.client_payload.value)
     const query = `query($owner:String!, $name:String!, $label:String!) {
               repository(owner:$owner, name:$name){
                 issues(first:100, labels: [$label]) {
