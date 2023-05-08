@@ -16,4 +16,4 @@ jobs:
         with:
           script: |
             const script = require('./scripts/issue_label_manager.js')
-            console.log(script({github, context}))
+            console.log(script({github, context}).then(v => console.log(v)))
