@@ -16,8 +16,9 @@ jobs:
         with:
           script: |
             const script = require('./scripts/issue_label_manager.js')
-            result = await script({github, context})
+            result = await script.query({github, context})
             console.log("result:",result)
             result.repository.issues.nodes.forEach(e=>{
               console.log("Issue:",e)
+              console.log("Issue_number:",e.number)
             });

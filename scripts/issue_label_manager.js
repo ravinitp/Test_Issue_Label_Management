@@ -1,11 +1,19 @@
 
-module.exports = async ({github, context}) => {
+const query = async ({github, context}) => {
 //     console.log(context.payload.client_payload.value)
     const query = `query($owner:String!, $name:String!, $label:String!) {
               repository(owner:$owner, name:$name){
                 issues(first:100, labels: [$label]) {
                   nodes {
                     number
+                    labels(first:50) {
+                      edges {
+                        node {
+                          name
+                          createdAt
+                        }
+                      }
+                    }
                   }
                 }
               }
